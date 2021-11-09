@@ -24,23 +24,10 @@
   <script>
     "use strict";
 
-    let userInput = +prompt('Введите температуру в градусах Цельсия,С:');
-    if (!isNaN(userInput)) {
-      let userIssue = (9 / 5) * userInput + 32;
-      alert(userIssue + ' F');
-    } else {
-      userInput = +prompt('Введите число!');
-      if (isNaN(userInput)) {
-          alert("wtf?")
-        } else {
-          userIssue = (9 / 5) * userInput + 32;
-          alert(userIssue + ' F');
-        }
-    }
+    const tempCelcius = +prompt('Введите температуру в градусах Цельсия,°С');
+    const tempFahrenheit = (9 / 5) * tempCelcius + 32;
 
-
-
-    // Здесь пишем решение, данный комментарий необходимо стереть.
+    alert("Цельсий: " + tempCelcius + '°С, Фаренгейт: ' + tempFahrenheit + ' °F.');
   </script>
 </body>
 
