@@ -24,7 +24,7 @@
   <script>
     "use strict";
 
-    const tempCelcius = +prompt('Введите температуру в градусах Цельсия,°С');
+    const tempCelcius = (+prompt('Введите температуру в градусах Цельсия,°С')).toFixed(2);
     const tempFahrenheit = (9 / 5) * tempCelcius + 32;
 
     alert("Цельсий: " + tempCelcius + '°С, Фаренгейт: ' +
