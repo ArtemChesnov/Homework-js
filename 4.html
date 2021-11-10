@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Необязательное задание.
 
 Необходимо от пользователя получить число.
@@ -25,10 +27,39 @@
 
 Уточнение: пользователь всегда вводит корректное положительное число.
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
+    //1 Вариант решения:
+
+    const userInput = prompt('Введите положительное число');
+    let hundreds = userInput[userInput.length - 3];
+    let dozens = userInput[userInput.length - 2];
+
+    if (hundreds === undefined) {
+      hundreds = 0;
+    };
+
+    if (dozens === undefined) {
+      dozens = 0;
+    };
+
+    alert(
+      `В числе ${userInput} количество сотен: ${hundreds}, десятков: ${dozens}, единиц: ${userInput[userInput.length - 1]}.`
+      );
+
+
+
+    //Второй вариант решения:
+
+    const userNumber = +prompt('Введите положительное число');
+
+    const units = userNumber % 10;
+    const tens = Math.trunc(userNumber / 10) % 10;
+    const hundred = Math.trunc(userNumber / 100) % 10;
+
+    console.log(`В числе ${userNumber} количество сотен: ${hundred}, десятков: ${tens}, единиц: ${units}.`);
+  </script>
 </body>
+
 </html>
