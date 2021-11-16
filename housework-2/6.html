@@ -19,7 +19,6 @@
 Пример:
 console.log(declinationOfNumber(1, "яблоко", "яблока", "яблок")); // "яблоко"
 console.log(declinationOfNumber(2, "мяч", "мяча", "мячей")); // "мяча"
-console.log(declinationOfNumber(5, "стул", "стула", "стульев")); // "стульев"
 
 Функция должна работать с любым словом и любым целым положительным числом.
 Все аргументы, которые будут передаваться функции будут верны.
@@ -38,7 +37,7 @@ console.log(declinationOfNumber(5, "стул", "стула", "стульев"));
      * числительному.
     */
 
-    function getWord(quantity, word1, word2, word3) {
+    function getWrd(quantity, word1, word2, word3) {
       const devider = Math.abs(quantity) % 100;
       const deviderMini = devider % 10;
 
@@ -54,7 +53,7 @@ console.log(declinationOfNumber(5, "стул", "стула", "стульев"));
       return word3;
     }
 
-    console.log(getWord(11, 'яблоко', 'яблока', 'яблок'));
+    console.log(getWrd(11, 'яблоко', 'яблока', 'яблок'));
   </script>
 </body>
 
