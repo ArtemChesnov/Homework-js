@@ -37,19 +37,24 @@ console.log(declinationOfNumber(5, "стул", "стула", "стульев"));
      * @returns {string} Слово,соотвествующее переданному в параметр arg1
      * числительному.
     */
-    let arg1 = Math.ceil(Math.random() * 100);
 
-    function getWord(arg1, arg2, arg3, arg4) {
-      if (arg1 === 1) {
-        return arg2;
-      } else if (arg1 >= 2 && arg1 <= 4) {
-        return arg3;
-      } else if (arg1 >= 5) {
-        return arg4;
+    function getWord(quantity, word1, word2, word3) {
+      const devider = Math.abs(quantity) % 100;
+      const deviderMini = devider % 10;
+
+      if (devider >= 5 && devider <= 20) {
+        return word3;
       }
+      if (deviderMini > 1 && deviderMini < 5) {
+        return word2;
+      }
+      if (deviderMini === 1) {
+        return word1;
+      }
+      return word3;
     }
 
-    console.log(getWord(arg1, 'яблоко', "яблока", "яблок"));
+    console.log(getWord(11, 'яблоко', 'яблока', 'яблок'));
   </script>
 </body>
 
