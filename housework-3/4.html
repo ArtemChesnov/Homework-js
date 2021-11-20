@@ -50,9 +50,7 @@
       product.photos != 0 && product.photos !== undefined));
 
     // 2.
-    console.log(products.sort(function (a, b) {
-      return b.price - a.price;
-    }));
+    console.log(products.sort((a, b) => a.price - b.price));
   </script>
 </body>
 
