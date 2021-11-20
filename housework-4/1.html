@@ -31,7 +31,7 @@
 
     ProductES5.prototype.make25Discount = function (price) {
       this.price *= 0.75;
-      console.log(`Новая цена - ${this.price}$`);
+      console.log(`Новая цена на ${this.name} - ${this.price}$.`);
     };
 
     const productES5 = new ProductES5('BS Puma Clyde All-Pro', 200);
@@ -49,7 +49,7 @@
 
       make25Discount(price) {
         this.price *= 0.75;
-        console.log(`Новая цена - ${this.price}$`);
+        console.log(`Новая цена на ${this.name} - ${this.price}$.`);
       };
     };
     const productES6 = new ProductES6('BS Puma Clyde All-Pro', 200);
