@@ -23,8 +23,7 @@
     "use strict";
 
 
-
-    //1.
+    // 1.
     function ProductES5(name, price) {
       this.name = name;
       this.price = price;
@@ -41,7 +40,7 @@
 
 
 
-    //2.
+    // //2.
     class ProductES6 {
       constructor(name, price) {
         this.name = name;
@@ -56,6 +55,75 @@
     const productES6 = new ProductES6('BS Puma Clyde All-Pro', 200);
     console.log(productES6);
     productES6.make25Discount();
+
+
+
+
+
+
+
+    // function Shoes(brand, model, collection, price) {
+    // this.brand = brand;
+    // this.model = model;
+    // this.collection = collection;
+    // this.price = price;
+    // };
+
+    // Shoes.prototype.blackFridayDiscount = function (price) {
+    // this.price *= 0.3;
+    // };
+
+    // const shoes = new Shoes();
+
+    // function ShoesPuma(brand, model, collection, price) {
+    // Shoes.call(this, brand, model, collection, price);
+    // }
+
+    // ShoesPuma.prototype = Object.create(Shoes.prototype);
+    // ShoesPuma.prototype.constructor = ShoesPuma;
+
+    // ShoesPuma.prototype.makePumaDiscount = function (price) {
+    // this.price *= 0.85;
+    // console.log(`Новая цена на ${this.brand} ${this.model} - ${this.price}$.`);
+    // }
+
+    // const shoesPuma = new ShoesPuma();
+    // console.log(shoesPuma);
+
+
+    // function ShoesNike(brand, model, collection, price) {
+    // Shoes.call(this, brand, model, collection, price);
+    // }
+
+    // ShoesNike.prototype = Object.create(Shoes.prototype);
+    // ShoesNike.prototype.constructor = ShoesNike;
+
+    // ShoesNike.prototype.makeNikeDiscount = function (price) {
+    // this.price *= 0.90;
+    // console.log(`Новая цена на ${this.brand} ${this.model} - ${this.price}$.`);
+    // }
+    // const shoesNike = new ShoesNike();
+    // console.log(shoesNike);
+
+
+    // const shoeClydeAllPro = new ShoesPuma('Puma', 'Clyde All-Pro', 'Summer', 200);
+    // console.log(shoeClydeAllPro);
+    // shoeClydeAllPro.makePumaDiscount();
+
+    // const shoeClydeAllProTeam = new ShoesPuma('Puma', 'Clyde All-Pro Team',
+    // 'Summer', 150);
+    // console.log(shoeClydeAllProTeam);
+    // shoeClydeAllProTeam.makePumaDiscount();
+
+    // const shoeNikeGTCut = new ShoesNike('Nike', 'Cut', 'Summer', 300);
+    // console.log(shoeNikeGTCut);
+    // shoeNikeGTCut.makeNikeDiscount();
+
+    // const shoeNikeGTRun = new ShoesNike('Nike', 'Run', 'Summer', 310);
+    // console.log(shoeNikeGTRun);
+    // shoeNikeGTRun.makeNikeDiscount();
+    // shoeNikeGTRun.blackFridayDiscount();
+    // console.log(shoeNikeGTRun);
   </script>
 </body>
 
