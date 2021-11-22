@@ -33,7 +33,14 @@
   <script>
     "use strict";
 
-
+    /**
+    * принимает целое положительное число в диапазоне от 0 до 1000.
+    * @param {number} num - целое положительное число.
+    * @return {Object} Возращает пустой объект если введено не целое 
+    положительное число или число, не входящее в заданный диапазон.
+    * @return {number} Возращает объект с тремя свойствами: units, dozens и 
+    hundreds.
+    */
     function getDigitsOfNumber(num) {
       if (num < 0 || num != Math.round(num) || num > 999) {
         console.error('Функции было передано не целое положительное число,' +
@@ -46,7 +53,7 @@
         hundreds: Math.trunc(num / 100) % 10
       }
     }
-    console.log(getDigitsOfNumber(123));
+    console.log(getDigitsOfNumber(765));
   </script>
 </body>
 
