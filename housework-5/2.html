@@ -78,7 +78,7 @@
     /*
     7. Удалите атрибут type у элемента с классом "dropdown-toggle".
      */
-    const dropDownToggleEl = document.querySelector('.dropdown-toggle').removeAttribute('type');
+    document.querySelector('.dropdown-toggle').removeAttribute('type');
 
 
     /*
@@ -89,10 +89,10 @@
      */
 
     const tagClasses = document.querySelector('.btn', '.dropdown-toggle');
-    const AttributesByEl = tagClasses.getAttributeNames();
-    for (let i = 0; i < AttributesByEl.length; i++) {
-      console.log(`Атрибут ${AttributesByEl[i]} содержит значение\
- ${tagClasses.getAttribute(AttributesByEl[i])}`);
+    const attributesByEl = tagClasses.getAttributeNames();
+    for (let i = 0; i < attributesByEl.length; i++) {
+      console.log(`Атрибут ${attributesByEl[i]} содержит значение\
+ ${tagClasses.getAttribute(attributesByEl[i])}`);
     };
   </script>
 </body>
