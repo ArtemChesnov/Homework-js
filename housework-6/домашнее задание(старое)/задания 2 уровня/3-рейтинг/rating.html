@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
+    <style>
+        i {
+            font-size: 50px;
+            cursor: pointer;
+        }
+
+        .golden {
+            color: gold;
+        }
+    </style>
+</head>
+
+<body>
+    <i id="first" class="fas fa-star"></i>
+    <i id="second" class="fas fa-star"></i>
+    <i id="third" class="fas fa-star"></i>
+    <i id="fourth" class="fas fa-star"></i>
+    <i id="fifth" class="fas fa-star"></i>
+
+    <!-- Задание. Используя заготовку, сделайте чтобы при наведении на вторую звезду
+    подсвечивались первая и вторая звезды. При наведени на третью звезду подсвечивались
+    первая, вторая и третья звезды, и т.д. 
+    mouseover - это событие срабатывает когда мы наводим на элемент.
+    mouseout - это событие срабатывает когда мы перестаем наводить на элемент.
+	Вы можете пойти более продвинутым путем, и получать предыдущий элемент 
+	например с помощью https://mzl.la/3a4SPlR
+    -->
+
+    <script>
+
+        const iEls = document.querySelectorAll('i');
+
+        iEls.forEach((star, index) => {
+            star.addEventListener('mouseover', () => {
+                iEls.forEach((navStar, navStarIndex) => {
+                    if (navStarIndex <= index) {
+                        navStar.classList.add('golden');
+                    };
+                });
+            });
+        });
+
+        iEls.forEach((star, index) => {
+            star.addEventListener('mouseout', () => {
+                iEls.forEach((navStar, navStarIndex) => {
+                    if (navStarIndex <= index) {
+                        navStar.classList.remove('golden');
+                    };
+                });
+            });
+        });
+
+
+        // const iEls = document.querySelectorAll('i');
+        // iEls.forEach(star => {
+        //     star.addEventListener('mouseover', function (event) {
+        //         addStar(event.target);
+        //     });
+        //     star.addEventListener('mouseout', function (event) {
+        //         remStar(event.target);
+        //     });
+        // });
+
+        // function addStar(star) {
+        //     star.classList.add('golden');
+        //     if (star.previousElementSibling !== null && star.previousElementSibling.tagName === ('I')) {
+        //         return addStar(star.previousElementSibling);
+        //     };
+        // };
+
+        // function remStar(star) {
+        //     star.classList.remove('golden');
+        //     if (star.previousElementSibling !== null && star.previousElementSibling.tagName === ('I')) {
+        //         return remStar(star.previousElementSibling);
+        //     };
+        // };
+    </script>
+
+</body>
+
+</html>
