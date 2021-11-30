@@ -64,6 +64,27 @@
 
     const iEls = document.querySelectorAll('div i');
 
+    // for (let i = 0; i < iEls.length; i++) {
+    //   iEls[i].addEventListener('mouseenter', () => {
+    //     if (!iEls[i].classList.contains('golden')) {
+    //       for (let k = 0; k <= i; k++) {
+    //         iEls[k].classList.add('golden');
+    //       };
+    //     };
+    //   });
+    // };
+
+    // for (let i = 0; i < iEls.length; i++) {
+    //   iEls[i].addEventListener('mouseleave', () => {
+    //     if (iEls[i].classList.contains('golden')) {
+    //       for (let k = 0; k <= i; k++) {
+    //         iEls[k].classList.remove('golden');
+    //       };
+    //     };
+    //   });
+    // };
+
+
     iEls.forEach((star, index) => {
       star.addEventListener('mouseenter', () => {
         iEls.forEach((navStar, navStarIndex) => {
