@@ -84,7 +84,7 @@
       if (!event.target.classList.contains('menuButton')) {
         return;
       }
-      productsEl.innerHTML = products[event.target.dataset.type].map(product => product.getProductMarkup());
+      productsEl.innerHTML = products[event.target.dataset.type].map(product => product.getProductMarkup()).join('');
     });
   </script>
 </body>

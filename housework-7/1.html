@@ -63,22 +63,20 @@
       H99: "Однако, программирование, в итоге, принесет свои плоды.",
     };
 
-    const linkEls = document.querySelectorAll('.nav-link');
-    const ulNavEl = document.querySelector('.nav');
+    const linkEls = document.querySelectorAll('a');
+    document.querySelector('.nav').addEventListener('click', (event) => {
+      if (event.target.tagName !== 'A') return;
 
-    ulNavEl.addEventListener('click', (event) => {
       linkEls.forEach(links => {
-        if (links.classList.contains('active') === true) {
-          links.classList.remove('active');
-        }
+        links.classList.remove('active');
       });
-      if (event.target.className === 'nav-link') {
+
+      if (event.target.classList.contains('nav-link')) {
         event.target.classList.add('active');
         const textEl = document.querySelector('.text');
         textEl.textContent = panelText[event.target.parentNode.getAttribute('data-text')];
       }
     });
-
     /*
     2. Необходимо сделать так, чтобы при изменении input'а менялся и размер шрифта
     у элемента с id="inputDiv". Перемещение ползунка должно плавно увеличивать

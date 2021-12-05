@@ -27,8 +27,7 @@
      * параметр "n"
      */
     function descendingOrder(n) {
-      const number = Number(Array.from(String(n), Number).sort((a, b) => (b - a)).join(''));
-      return number;
+     return Number(Array.from(String(n), Number).sort((a, b) => (b - a)).join(''));
     }
 
     console.log(descendingOrder(42145));
