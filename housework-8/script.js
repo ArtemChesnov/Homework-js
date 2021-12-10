@@ -24,7 +24,40 @@ document.querySelector(".featuredItems").addEventListener("click", (event) => {
     const price = productEls.dataset.price;
 
     addToCart(id, name, price);
+});
 
+/**
+ * Обработчик клика на кнопки "-"(уменьшить кол-во товара на ед.), "+"(увеличить на ед.) 
+ * и "х"(удалить товар из корзины).
+ */
+basketEl.addEventListener('click', (event) => {
+    if (!event.target.closest('.product__list')) {
+        return;
+    }
+    const prstr = event.target.closest('.product__list');
+    const id = prstr.dataset.id;
+    const basketStrEl = basketEl.querySelector(`.product__list[data-id="${id}"]`);
+
+    if (event.target.classList.contains('btn-countMin')) {
+        basket[id].count--;
+    }
+
+    if (event.target.classList.contains('btn-countPl')) {
+        basket[id].count++;
+    }
+
+    if (basket[id].count < 1) {
+        basketStrEl.remove();
+    }
+    if (event.target.classList.contains('delete-btn')) {
+        basket[id].count = 0;
+        basketStrEl.remove();
+    }
+
+    basketStrEl.querySelector('.product__item-count').textContent = basket[id].count;
+    basketStrEl.querySelector('.product__item-total').textContent = (basket[id].price * basket[id].count).toFixed(2);
+    productValue.textContent = getTotalCountInBasket();
+    basketTotalValue.textContent = getTotalPrice().toFixed(2);
 });
 
 /**
@@ -42,13 +75,13 @@ function addToCart(id, name, price) {
             price: price,
             count: 0
         };
-    };
+    }
     basket[id].count++;
 
     renderProductInBasket(id);
     productValue.textContent = getTotalCountInBasket();
     basketTotalValue.textContent = getTotalPrice().toFixed(2);
-};
+}
 
 /**
  * Считает и возвращает общее количество товаров в корзине.
@@ -60,9 +93,9 @@ function getTotalCountInBasket() {
     let count = 0;
     for (const product of arr) {
         count += product.count;
-    };
+    }
     return count;
-};
+}
 
 /**
  * Считает и возвращает итоговую цену по всем добавленным в корзину товарам.
@@ -74,9 +107,9 @@ function getTotalPrice() {
     let total = 0;
     for (const product of arr) {
         total += product.price * product.count;
-    };
+    }
     return total;
-};
+}
 
 /**
  * Отрисовывает в корзину количество и общую стоимость добавляемого товара.
@@ -89,10 +122,10 @@ function renderProductInBasket(id) {
     if (!basketStrEl) {
         renderNewProductInBasket(id);
         return;
-    };
+    }
     basketStrEl.querySelector('.product__item-count').textContent = basket[id].count;
     basketStrEl.querySelector('.product__item-total').textContent = (basket[id].price * basket[id].count).toFixed(2);
-};
+}
 
 /**
  * Функция отрисовывает добавляемый в корзину товар.
@@ -108,34 +141,6 @@ function renderNewProductInBasket(id) {
     <li class="product__item">$<span class="product__item-total">${(basket[id].price * basket[id].count).toFixed(2)}</span></li>
     <li class="product__item"><button class="delete-btn">&#215;</button></li>
     </ul>
-    `
+    `;
     basketTotalEl.insertAdjacentHTML("beforebegin", productStr);
-
-
-    /**
-     * Обработчик клика на кнопки "-"(уменьшить кол-во товара на ед.), 
-     * "+"(увеличить на ед.) и "х"(удалить товар из корзины).
-     */
-    const basketStrEl = document.querySelector(`.product__list[data-id="${id}"]`);
-    basketStrEl.addEventListener('click', (event) => {
-        if (event.target.classList.contains('btn-countMin')) {
-            basket[id].count--;
-        };
-
-        if (event.target.classList.contains('btn-countPl')) {
-            basket[id].count++;
-        };
-
-        if (basket[id].count < 1) {
-            basketStrEl.remove();
-        }
-        if (event.target.classList.contains('delete-btn')) {
-            basket[id].count = 0;
-            basketStrEl.remove();
-        };
-        basketStrEl.querySelector('.product__item-count').textContent = basket[id].count;
-        basketStrEl.querySelector('.product__item-total').textContent = (basket[id].price * basket[id].count).toFixed(2);
-        productValue.textContent = getTotalCountInBasket();
-        basketTotalValue.textContent = getTotalPrice().toFixed(2);
-    });
-};
+}
